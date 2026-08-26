@@ -27,3 +27,7 @@ coverage/
 reports/generated/
 *.prof
 *.trace
+
+# Python
+__pycache__/
+*.py[cod]
