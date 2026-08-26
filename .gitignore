@@ -17,6 +17,7 @@ out/
 
 # Local agent/session artifacts
 .superpowers/
+.orchestrator/
 .env
 .env.*
 !.env.example
@@ -26,3 +27,7 @@ coverage/
 reports/generated/
 *.prof
 *.trace
+
+# Python
+__pycache__/
+*.py[cod]

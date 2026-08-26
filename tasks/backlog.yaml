@@ -5,5 +5,7 @@ tasks:
     status: ready
     owner: director
     acceptance:
-      - One small map has two portals and one fixed demand
-      - The scope and success metrics are written in docs/product/
+      - One small 12 x 8 map has exactly two named portals and one fixed west-to-east demand
+      - The demand seed, release window, and deterministic rerun behavior are documented
+      - Throughput, latency, queue, and backlog indicators have explicit definitions and validation targets
+      - The scope and non-scoring success metrics are written in docs/product/vertical-slice-scenario.md
