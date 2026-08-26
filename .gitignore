@@ -1,0 +1,28 @@
+# Godot
+.godot/
+*.godot.uid
+export.cfg
+export_presets.cfg
+
+# Build and generated output
+build/
+dist/
+bin/
+out/
+
+# Local editor and OS files
+.DS_Store
+.idea/
+.vscode/
+
+# Local agent/session artifacts
+.superpowers/
+.env
+.env.*
+!.env.example
+
+# Test and benchmark output
+coverage/
+reports/generated/
+*.prof
+*.trace

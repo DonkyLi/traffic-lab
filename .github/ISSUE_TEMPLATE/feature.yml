@@ -1,0 +1,33 @@
+name: Feature or design task
+description: Propose a scoped product, simulation, client, scenario, or QA task
+title: "[Task] "
+labels: ["status:ready"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What player or development outcome should this produce?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and ownership
+      description: Allowed directories, dependencies, and explicit non-goals.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Observable checks that prove the task is complete.
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: Tests, replay checks, screenshots, or benchmark evidence required.
+    validations:
+      required: true
