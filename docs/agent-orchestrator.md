@@ -38,7 +38,7 @@ export ORCHESTRATOR_ALLOW_CODEX=1
 PYTHONPATH=. python3 -m orchestrator worker --role director
 ```
 
-Run the worker under a process supervisor or scheduler for continuous processing. The next automation iteration should add a long-running polling loop, GitHub webhook handling, subtask extraction from director output, retry backoff, and explicit human approval gates before merging or publishing.
+The webhook server starts a background worker automatically when `ORCHESTRATOR_ALLOW_CODEX=1`. For a separate worker process, use `PYTHONPATH=. python3 -m orchestrator worker --role director --loop` under a process supervisor. GitHub webhook handling, structured subtask extraction from director output, retry backoff, and explicit human approval gates before merging or publishing remain the next hardening steps.
 
 ## Important boundary
 

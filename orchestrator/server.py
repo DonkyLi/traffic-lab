@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import json
+import threading
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from .config import Config
 from .feishu import parse_event
 from .service import Orchestrator
+from .runner import TaskWorker
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -41,4 +43,7 @@ class Handler(BaseHTTPRequestHandler):
 def serve(config: Config, host: str = "127.0.0.1", port: int = 8787):
     Handler.config = config
     Handler.orchestrator = Orchestrator(config)
+    if config.allow_codex_execution:
+        worker = TaskWorker(config)
+        threading.Thread(target=worker.run_forever, name="codex-worker", daemon=True).start()
     HTTPServer((host, port), Handler).serve_forever()

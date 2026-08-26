@@ -15,6 +15,8 @@ def main() -> None:
     subparsers.add_parser("serve")
     worker = subparsers.add_parser("worker")
     worker.add_argument("--role", default="director")
+    worker.add_argument("--loop", action="store_true")
+    worker.add_argument("--interval", type=float, default=5.0)
     ingest = subparsers.add_parser("ingest")
     ingest.add_argument("text")
     ingest.add_argument("--event-id", default="local-event")
@@ -25,8 +27,12 @@ def main() -> None:
     elif args.command == "serve":
         serve(Config.from_env())
     elif args.command == "worker":
-        result = TaskWorker(Config.from_env()).process_one(args.role)
-        print(result if result else "no ready task")
+        worker_runner = TaskWorker(Config.from_env())
+        if args.loop:
+            worker_runner.run_forever(args.role, args.interval)
+        else:
+            result = worker_runner.process_one(args.role)
+            print(result if result else "no ready task")
     else:
         print(orchestrator.ingest_feishu_text(args.text, args.event_id))
 

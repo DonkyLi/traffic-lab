@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import subprocess
+import time
 from pathlib import Path
 
 from .codex_cli import build_codex_command
@@ -47,3 +48,8 @@ class TaskWorker:
         else:
             self.store.mark_failed(task.id, result.stderr[-2000:] or "codex exited non-zero")
         return self.store.get(task.id)
+
+    def run_forever(self, role: str = "director", interval: float = 5.0) -> None:
+        while True:
+            self.process_one(role)
+            time.sleep(interval)
