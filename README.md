@@ -22,3 +22,5 @@ reports/    Playtest and benchmark reports
 ## Collaboration
 
 See [AGENTS.md](AGENTS.md) for the shared rules used by Codex agents. All code changes go through GitHub branches and pull requests.
+
+Role prompts and GitHub hand-off rules are in [`agents/`](agents/README.md).
