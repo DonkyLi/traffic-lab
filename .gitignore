@@ -17,7 +17,6 @@ out/
 
 # Local agent/session artifacts
 .superpowers/
-.orchestrator/
 .env
 .env.*
 !.env.example
