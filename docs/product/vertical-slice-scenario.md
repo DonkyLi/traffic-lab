@@ -89,4 +89,3 @@ the editor → topology → simulation → snapshot boundary in
 [system.md](../architecture/system.md). It does not require changes to those
 schemas. Any implementation that needs additional fields, new scoring, or a
 third portal must stop and request a decision record.
-
