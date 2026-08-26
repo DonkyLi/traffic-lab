@@ -1,0 +1,9 @@
+version: 1
+tasks:
+  - id: BOOT-001
+    title: Define the first playable vertical slice
+    status: ready
+    owner: director
+    acceptance:
+      - One small map has two portals and one fixed demand
+      - The scope and success metrics are written in docs/product/
